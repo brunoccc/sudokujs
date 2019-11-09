@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.com/brunoccc/sudokujs.svg?branch=master)](https://travis-ci.com/brunoccc/sudokujs)
+[![npm version](https://badge.fury.io/js/%40brunoci%2Fsudokujs.svg)](https://badge.fury.io/js/%40brunoci%2Fsudokujs)
 
 # YET ANOTHER SUDOKU SOLVER
 
