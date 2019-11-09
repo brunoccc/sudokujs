@@ -43,7 +43,7 @@ export class BitCandidates {
         const bit = ~(1 << (val - 1));
         this.colsMask[col] = this.colsMask[col] & bit;
         this.rowsMask[row] = this.rowsMask[row] & bit;
-        this.blocksMask[Math.trunc(row / 3)][col / 3] = this.blocksMask[Math.trunc(row / 3)][col / 3] & bit;
+        this.blocksMask[Math.trunc(row / 3)][Math.trunc(col / 3)] = this.blocksMask[Math.trunc(row / 3)][Math.trunc(col / 3)] & bit;
     }
 
     /**
@@ -53,7 +53,7 @@ export class BitCandidates {
         const bit = (1 << (val - 1));
         this.colsMask[col] = this.colsMask[col] | bit;
         this.rowsMask[row] = this.rowsMask[row] | bit;
-        this.blocksMask[Math.trunc(row / 3)][col / 3] = this.blocksMask[Math.trunc(row / 3)][col / 3] | bit;
+        this.blocksMask[Math.trunc(row / 3)][Math.trunc(col / 3)] = this.blocksMask[Math.trunc(row / 3)][Math.trunc(col / 3)] | bit;
     }
 
     /**

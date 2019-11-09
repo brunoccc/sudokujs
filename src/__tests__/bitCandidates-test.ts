@@ -4,7 +4,7 @@ describe("Tests bitCandidates", () => {
 
     let bitCandidates: BitCandidates;
 
-    beforeAll(() => {
+    beforeEach(() => {
         bitCandidates = new BitCandidates();
     });
 
@@ -15,6 +15,30 @@ describe("Tests bitCandidates", () => {
                 expect(bitCandidates.getMask(row, col)).toEqual(expectedBits);
             }
         }
+    });
+
+    test("tests value in the same row", () => {
+        const testRow = 2;
+        const testCol  = 3;
+        bitCandidates.useVal(testRow, 8, 5); // Uses number 5 in the last column of test row
+        const expectedBits = convertToBits([1, 2, 3, 4, /* 5, */ 6, 7, 8, 9]);
+        expect(bitCandidates.getMask(testRow, testCol)).toEqual(expectedBits);
+    });
+
+    test("tests value in the same colum", () => {
+        const testRow = 2;
+        const testCol  = 3;
+        bitCandidates.useVal(8, testCol, 3); // Uses number 3 in the last row of test column
+        const expectedBits = convertToBits([1, 2, /* 3,*/ 4, 5, 6, 7, 8, 9]);
+        expect(bitCandidates.getMask(testRow, testCol)).toEqual(expectedBits);
+    });
+
+    test("tests value in the same block", () => {
+        const testRow = 2;
+        const testCol  = 3;
+        bitCandidates.useVal(0, 5, 7); // Uses number 7 in the opposite corner of the block
+        const expectedBits = convertToBits([1, 2, 3, 4, 5, 6, /* 7,*/ 8, 9]);
+        expect(bitCandidates.getMask(testRow, testCol)).toEqual(expectedBits);
     });
 });
 
@@ -30,35 +54,3 @@ function convertToBits(values: number[]): number {
 
     return ret;
 }
-
-//     @Test
-//     public void testInitialValues() {
-//     }
-
-//     @Test
-//     public void testUseValueInSameRow() {
-//         final int testRow = 2;
-//         final int testCol  = 3;
-//         candidates.useVal(testRow, 8, 5); // Uses number 5 in the last column of test row
-//         int expectedBits = convertToBits(new int[] {1, 2, 3, 4, /* 5, */ 6, 7, 8, 9});
-//         assertEquals("Value for (" + testRow + ", " + testCol + ")", expectedBits, candidates.getMask(testRow, testCol));
-//     }
-
-//     @Test
-//     public void testUseValueInSameCol() {
-//         final int testRow = 2;
-//         final int testCol  = 3;
-//         candidates.useVal(8, testCol, 3); // Uses number 3 in the last row of test column
-//         int expectedBits = convertToBits(new int[] {1, 2, /* 3, */ 4, 5, 6, 7, 8, 9});
-//         assertEquals("Value for (" + testRow + ", " + testCol + ")", expectedBits, candidates.getMask(testRow, testCol));
-//     }
-
-//     @Test
-//     public void testUseValueInSameBlock() {
-//         final int testRow = 2;
-//         final int testCol  = 3;
-//         candidates.useVal(0, 5, 7); // Uses number 7 in the opposite corner of the block
-//         int expectedBits = convertToBits(new int[] {1, 2, 3, 4, 5, 6, /* 7, */ 8, 9});
-//         assertEquals("Value for (" + testRow + ", " + testCol + ")", expectedBits, candidates.getMask(testRow, testCol));
-//     }
-// }
