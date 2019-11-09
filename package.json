@@ -1,13 +1,13 @@
 {
   "name": "@brunoci/sudokujs",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Yet Another Sudoku Solver",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
     "test": "jest",
-    "prepublish": "npm test",
+    "prepublish": "npm run lint && npm run test && npm run build",
     "lint": "tslint --project ."
   },
   "author": "Bruno Cicciarello",
