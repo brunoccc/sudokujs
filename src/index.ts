@@ -1,3 +1,1 @@
-export function hello(): string {
-  return "Hello world!";
-}
+export { Sudoku } from './sudoku';
