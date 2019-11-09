@@ -1,1 +1,1 @@
-export { Sudoku } from './sudoku';
+export { Sudoku } from "./sudoku";
