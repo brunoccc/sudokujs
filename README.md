@@ -33,7 +33,7 @@ When we need to know the possible values for a cell, we simply combine the bitma
 The easiest way is to use the NPM package. Import the project into your `node_modules`:
 
 ```
-npm install -save @brunoci/sudokujs
+npm install --save @brunoci/sudokujs
 ```
 
 And simply use it:
