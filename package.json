@@ -20,5 +20,6 @@
     "tslint": "^5.20.1",
     "typescript": "^3.7.2"
   },
-  "files": ["dist/**/*"]
+  "files": ["dist/**/*"],
+  "repository": "github:brunoccc/sudokujs"
 }
