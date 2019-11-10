@@ -107,9 +107,9 @@ describe("tests utility methods", () => {
         ];
 
         const sudoku = new Sudoku(grid);
-        const expected = 
-            ". . . | . . . | . . . \n" + 
-            ". . . | . . 3 | . 8 5 \n" + 
+        const expected =
+            ". . . | . . . | . . . \n" +
+            ". . . | . . 3 | . 8 5 \n" +
             ". . 1 | . 2 . | . . . \n" +
             "------+-------+------ \n" +
             ". . . | 5 . 7 | . . . \n" +

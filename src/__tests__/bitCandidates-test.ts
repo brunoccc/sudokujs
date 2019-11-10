@@ -20,7 +20,7 @@ describe("Tests bitCandidates", () => {
     test("tests value in the same row", () => {
         const testRow = 2;
         const testCol  = 3;
-        
+
         // Uses number 5 in the last column of test row
         bitCandidates.useVal(testRow, 8, 5);
         let expectedBits = convertToBits([1, 2, 3, 4, /* 5, */ 6, 7, 8, 9]);
