@@ -26,7 +26,7 @@ I think that the tracking of which values are possible is quite interesting. Ess
 When we write a value in a cell, we set to 0 the corresponding bit for the bitmasks of that row, that column and that block (i.e. "this value is no longer available").  
 When we need to know the possible values for a cell, we simply combine the bitmasks of that row, column and block using a logical `AND`.
 
-<TODO: I promise I will add some pictures>
+![Alternative values and bitmasks](doc/brunoccc-sudoku-1.png?raw=true "Bitmasks")
 
 ### HOW TO USE IT
 
