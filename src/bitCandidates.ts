@@ -43,7 +43,8 @@ export class BitCandidates {
         const bit = ~(1 << (val - 1));
         this.colsMask[col] = this.colsMask[col] & bit;
         this.rowsMask[row] = this.rowsMask[row] & bit;
-        this.blocksMask[Math.trunc(row / 3)][Math.trunc(col / 3)] = this.blocksMask[Math.trunc(row / 3)][Math.trunc(col / 3)] & bit;
+        const { blockRow, blockCol } = this.getBlockRowCol(row, col);
+        this.blocksMask[blockRow][blockCol] = this.blocksMask[blockRow][blockCol] & bit;
     }
 
     /**
@@ -53,14 +54,25 @@ export class BitCandidates {
         const bit = (1 << (val - 1));
         this.colsMask[col] = this.colsMask[col] | bit;
         this.rowsMask[row] = this.rowsMask[row] | bit;
-        this.blocksMask[Math.trunc(row / 3)][Math.trunc(col / 3)] = this.blocksMask[Math.trunc(row / 3)][Math.trunc(col / 3)] | bit;
+        const { blockRow, blockCol } = this.getBlockRowCol(row, col);
+        this.blocksMask[blockRow][blockCol] = this.blocksMask[blockRow][blockCol] | bit;
     }
 
     /**
      *  Returns the bitmask for the valid values for that cell
      */
     public getMask(row: number, col: number): number {
-        const mask = this.rowsMask[row] & this.colsMask[col] & this.blocksMask[Math.trunc(row / 3)][Math.trunc(col / 3)];
+        const { blockRow, blockCol } = this.getBlockRowCol(row, col);
+        const mask = this.rowsMask[row] & this.colsMask[col] & this.blocksMask[blockRow][blockCol];
         return mask;
+    }
+
+    /**
+     * Return the row and col of the block of the specified cell
+     */
+    private getBlockRowCol(row: number, col: number): { blockRow: number, blockCol: number } {
+        const blockRow = Math.trunc(row / 3);
+        const blockCol = Math.trunc(col / 3);
+        return { blockRow, blockCol };
     }
 }
