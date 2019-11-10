@@ -20,24 +20,45 @@ describe("Tests bitCandidates", () => {
     test("tests value in the same row", () => {
         const testRow = 2;
         const testCol  = 3;
-        bitCandidates.useVal(testRow, 8, 5); // Uses number 5 in the last column of test row
-        const expectedBits = convertToBits([1, 2, 3, 4, /* 5, */ 6, 7, 8, 9]);
+        
+        // Uses number 5 in the last column of test row
+        bitCandidates.useVal(testRow, 8, 5);
+        let expectedBits = convertToBits([1, 2, 3, 4, /* 5, */ 6, 7, 8, 9]);
+        expect(bitCandidates.getMask(testRow, testCol)).toEqual(expectedBits);
+
+        // Clear that number
+        bitCandidates.clearVal(testRow, 8, 5);
+        expectedBits = convertToBits([1, 2, 3, 4, 5, 6, 7, 8, 9]);
         expect(bitCandidates.getMask(testRow, testCol)).toEqual(expectedBits);
     });
 
     test("tests value in the same colum", () => {
         const testRow = 2;
         const testCol  = 3;
-        bitCandidates.useVal(8, testCol, 3); // Uses number 3 in the last row of test column
-        const expectedBits = convertToBits([1, 2, /* 3,*/ 4, 5, 6, 7, 8, 9]);
+
+        // Uses number 3 in the last row of test column
+        bitCandidates.useVal(8, testCol, 3);
+        let expectedBits = convertToBits([1, 2, /* 3,*/ 4, 5, 6, 7, 8, 9]);
+        expect(bitCandidates.getMask(testRow, testCol)).toEqual(expectedBits);
+
+        // Clear that number
+        bitCandidates.clearVal(8, testCol, 3);
+        expectedBits = convertToBits([1, 2, 3, 4, 5, 6, 7, 8, 9]);
         expect(bitCandidates.getMask(testRow, testCol)).toEqual(expectedBits);
     });
 
     test("tests value in the same block", () => {
         const testRow = 2;
         const testCol  = 3;
-        bitCandidates.useVal(0, 5, 7); // Uses number 7 in the opposite corner of the block
-        const expectedBits = convertToBits([1, 2, 3, 4, 5, 6, /* 7,*/ 8, 9]);
+
+        // Uses number 7 in the opposite corner of the block
+        bitCandidates.useVal(0, 5, 7);
+        let expectedBits = convertToBits([1, 2, 3, 4, 5, 6, /* 7,*/ 8, 9]);
+        expect(bitCandidates.getMask(testRow, testCol)).toEqual(expectedBits);
+
+        // Clear that number
+        bitCandidates.clearVal(0, 5, 7);
+        expectedBits = convertToBits([1, 2, 3, 4, 5, 6, 7, 8, 9]);
         expect(bitCandidates.getMask(testRow, testCol)).toEqual(expectedBits);
     });
 });

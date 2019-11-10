@@ -49,7 +49,7 @@ export class Sudoku {
 
         for (let row = 0; row < this.grid.length; row++) {
             if (row > 0 && row % 3 === 0) {
-                ret = ret + "------+-------+------\n";
+                ret = ret + "------+-------+------ \n";
             }
             for (let col = 0; col < this.grid[row].length; col++) {
                 if (col > 0 && col % 3 === 0) {
