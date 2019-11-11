@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.com/brunoccc/sudokujs.svg?branch=master)](https://travis-ci.com/brunoccc/sudokujs)
-[![npm version](https://badge.fury.io/js/%40brunoci%2Fsudokujs.svg)](https://badge.fury.io/js/%40brunoci%2Fsudokujs)
+[![npm version](https://badge.fury.io/js/%40brunoccc%2Fsudokujs.svg)](https://badge.fury.io/js/%40brunoccc%2Fsudokujs)
 
 # YET ANOTHER SUDOKU SOLVER
 
@@ -33,13 +33,13 @@ When we need to know the possible values for a cell, we simply combine the bitma
 The easiest way is to use the NPM package. Import the project into your `node_modules`:
 
 ```
-npm install --save @brunoci/sudokujs
+npm install --save @brunoccc/sudokujs
 ```
 
 And simply use it:
 
 ```
-const { Sudoku } = require('@brunoci/sudokujs');
+const { Sudoku } = require('@brunoccc/sudokujs');
 
 const grid = [
     [ 0, 0, 0,   0, 0, 0,    0, 0, 0 ],

@@ -1,5 +1,5 @@
 {
-  "name": "@brunoci/sudokujs",
+  "name": "@brunoccc/sudokujs",
   "version": "1.0.8",
   "description": "Yet Another Sudoku Solver",
   "main": "dist/index.js",
